@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FriendFinder App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplemodal/1.4.4/jquery.simplemodal.min.js"></script>
+  <style>
+  #simplemodal-container
+  {
+    height:360px;
+    width:600px;
+    color:#bbb;
+    background-color:#333;
+    border:8px solid #bbb;
+    padding:12px;
+  }
+  
+  #simplemodal-container a.modalCloseImg
+  {
+    background:url(https://image.flaticon.com/icons/svg/61/61155.svg) no-repeat;
+    width:25px;
+    height:29px;
+    display:inline;
+    z-index:3200;
+    position:absolute;
+    top: 5px;
+    right: 10px;
+	  cursor:pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>FriendFinder App</h1>
+      <h3>Answer the questions and find your best match!</h3>
+      <hr>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Characters</button></a>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Survey</strong></h3>
+          </div>
+          <div class="panel-body">
+            <form method="POST" role="form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="form-group">
+                <label for="name">Photo URL</label>
+                <input type="text" class="form-control" id="photo_url">
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 1: I have a kind word for everyone</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question1_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question1_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question1_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question1_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question1_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 2: I am always prepared</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question2_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question2_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question2_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question2_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question2_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 3: I feel comfortable around people</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question3_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question3_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question3_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question3_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question3_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 4: I often feel blue</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question4_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question4_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question4_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question4_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question4_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 5: I believe in the importance of art</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question5_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question5_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question5_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question5_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question5_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 6: I feel I am better than other people</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question6_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question6_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question6_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question6_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question6_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 7: I avoid taking on a lot of responsibility</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question7_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question7_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question7_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question7_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question7_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 8: I make friends easily</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question8_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question8_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question8_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question8_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question8_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 9: There are many things that I do not like about myself</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question9_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question9_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question9_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question9_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question9_1">Strongly Disagree</label>
+              </div>
+              <div class="form-group">
+                <label for="photo">Question 10: I am interested in the meaning of things</label><br>
+                <label class="checkbox-inline"><input type="checkbox" value="5" id="question10_5">Strongly Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="4" id="question10_4">Agree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="3" id="question10_3">Undecided</label>
+                <label class="checkbox-inline"><input type="checkbox" value="2" id="question10_2">Disagree</label>
+                <label class="checkbox-inline"><input type="checkbox" value="1" id="question10_1">Strongly Disagree</label>
+              </div>
+            </form>
+            <br>
+            <div class="text-right">
+              <center><button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Submit</button></center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      if($('#question1_5').is(':checked')) {answer1 = '5';};
+      if($('#question1_4').is(':checked')) {answer1 = '4';};
+      if($('#question1_3').is(':checked')) {answer1 = '3';};
+      if($('#question1_2').is(':checked')) {answer1 = '2';};
+      if($('#question1_1').is(':checked')) {answer1 = '1';};
+      if($('#question2_5').is(':checked')) {answer2 = '5';};
+      if($('#question2_4').is(':checked')) {answer2 = '4';};
+      if($('#question2_3').is(':checked')) {answer2 = '3';};
+      if($('#question2_2').is(':checked')) {answer2 = '2';};
+      if($('#question2_1').is(':checked')) {answer2 = '1';};
+      if($('#question3_5').is(':checked')) {answer3 = '5';};
+      if($('#question3_4').is(':checked')) {answer3 = '4';};
+      if($('#question3_3').is(':checked')) {answer3 = '3';};
+      if($('#question3_2').is(':checked')) {answer3 = '2';};
+      if($('#question3_1').is(':checked')) {answer3 = '1';};
+      if($('#question4_5').is(':checked')) {answer4 = '5';};
+      if($('#question4_4').is(':checked')) {answer4 = '4';};
+      if($('#question4_3').is(':checked')) {answer4 = '3';};
+      if($('#question4_2').is(':checked')) {answer4 = '2';};
+      if($('#question4_1').is(':checked')) {answer4 = '1';};
+      if($('#question5_5').is(':checked')) {answer5 = '5';};
+      if($('#question5_4').is(':checked')) {answer5 = '4';};
+      if($('#question5_3').is(':checked')) {answer5 = '3';};
+      if($('#question5_2').is(':checked')) {answer5 = '2';};
+      if($('#question5_1').is(':checked')) {answer5 = '1';};
+      if($('#question6_5').is(':checked')) {answer6 = '5';};
+      if($('#question6_4').is(':checked')) {answer6 = '4';};
+      if($('#question6_3').is(':checked')) {answer6 = '3';};
+      if($('#question6_2').is(':checked')) {answer6 = '2';};
+      if($('#question6_1').is(':checked')) {answer6 = '1';};
+      if($('#question7_5').is(':checked')) {answer7 = '5';};
+      if($('#question7_4').is(':checked')) {answer7 = '4';};
+      if($('#question7_3').is(':checked')) {answer7 = '3';};
+      if($('#question7_2').is(':checked')) {answer7 = '2';};
+      if($('#question7_1').is(':checked')) {answer7 = '1';};
+      if($('#question8_5').is(':checked')) {answer8 = '5';};
+      if($('#question8_4').is(':checked')) {answer8 = '4';};
+      if($('#question8_3').is(':checked')) {answer8 = '3';};
+      if($('#question8_2').is(':checked')) {answer8 = '2';};
+      if($('#question8_1').is(':checked')) {answer8 = '1';};
+      if($('#question9_5').is(':checked')) {answer9 = '5';};
+      if($('#question9_4').is(':checked')) {answer9 = '4';};
+      if($('#question9_3').is(':checked')) {answer9 = '3';};
+      if($('#question9_2').is(':checked')) {answer9 = '2';};
+      if($('#question9_1').is(':checked')) {answer9 = '1';};
+      if($('#question10_5').is(':checked')) {answer10 = '5';};
+      if($('#question10_4').is(':checked')) {answer10 = '4';};
+      if($('#question10_3').is(':checked')) {answer10 = '3';};
+      if($('#question10_2').is(':checked')) {answer10 = '2';};
+      if($('#question10_1').is(':checked')) {answer10 = '1';};
+
+      var newCharacter = {
+        name: $("#name").val(),
+        photo: $("#photo_url").val(),
+        answer1: answer1,
+        answer2: answer2,
+        answer3: answer3,
+        answer4: answer4,
+        answer5: answer5,
+        answer6: answer6,
+        answer7: answer7,
+        answer8: answer8,
+        answer9: answer9,
+        answer10: answer10
+      };
+
+      $.post("/api/friends", newCharacter)
+      .then(function(data) {
+      });
+
+      $.get("/all")
+      .then(function(data) {
+        totalDifference_array = [];
+            var new_character_answer1, new_character_answer2, new_character_answer3, new_character_answer4, new_character_answer5, new_character_answer6, new_character_answer7, new_character_answer8, new_character_answer9, new_character_answer10;
+            for (var i in data) {
+              if (data[i].name == $("#name").val()) {
+                var new_character_answer1 = data[i].answer1;
+                var new_character_answer2 = data[i].answer2;
+                var new_character_answer3 = data[i].answer3;
+                var new_character_answer4 = data[i].answer4;
+                var new_character_answer5 = data[i].answer5;
+                var new_character_answer6 = data[i].answer6;
+                var new_character_answer7 = data[i].answer7;
+                var new_character_answer8 = data[i].answer8;
+                var new_character_answer9 = data[i].answer9;
+                var new_character_answer10 = data[i].answer10;
+              };
+            };
+            for (var i in data) {
+              var dif1 = Math.abs(parseInt(data[i].answer1) - parseInt(new_character_answer1));
+              var dif2 = Math.abs(parseInt(data[i].answer2) - parseInt(new_character_answer2));
+              var dif3 = Math.abs(parseInt(data[i].answer3) - parseInt(new_character_answer3));
+              var dif4 = Math.abs(parseInt(data[i].answer4) - parseInt(new_character_answer4));
+              var dif5 = Math.abs(parseInt(data[i].answer5) - parseInt(new_character_answer5));
+              var dif6 = Math.abs(parseInt(data[i].answer6) - parseInt(new_character_answer6));
+              var dif7 = Math.abs(parseInt(data[i].answer7) - parseInt(new_character_answer7));
+              var dif8 = Math.abs(parseInt(data[i].answer8) - parseInt(new_character_answer8));
+              var dif9 = Math.abs(parseInt(data[i].answer9) - parseInt(new_character_answer9));
+              var dif10 = Math.abs(parseInt(data[i].answer10) - parseInt(new_character_answer10));
+              var totalDifference = dif1 + dif2 + dif3 + dif4 + dif5 + dif6 + dif7 + dif8 + dif9 + dif10;
+              var diffobject = {ID: data[i].name, Difference: totalDifference, PhotoURL: data[i].photo};
+              totalDifference_array.push(diffobject);
+            };
+            var lowest = Number.POSITIVE_INFINITY;
+            var lowest_name;
+            var lowest_photo;
+            var tmp_number;
+            var tmp_name;
+            var tpm_photo;
+            for (var i=totalDifference_array.length-1; i>=0; i--) {
+              if (totalDifference_array[i].ID != $("#name").val()) {
+                tmp_number = totalDifference_array[i].Difference;
+                tmp_name = totalDifference_array[i].ID;
+                tpm_photo = totalDifference_array[i].PhotoURL;
+                if (tmp_number < lowest) {
+                  lowest = tmp_number;
+                  lowest_name = tmp_name;
+                  lowest_photo = tpm_photo;
+                };
+              };
+            };
+            console.log('You matched with ' + lowest_name +"!");
+            $.modal('<center><p><br><br>' + 'You matched with <b>' + lowest_name + '<b>!<br>' + '<img src="' + lowest_photo + '" height="200" width="200">' + '<p></center>');
+      });
+    });
+  </script>
+</body>
+</html>
